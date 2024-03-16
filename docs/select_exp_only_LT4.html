@@ -80,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="filtering-gaps">filtering gaps</h2>
 <p>We’ve just messing around with this and haven’t thought about filtering too much on the input data, but there are some comments:</p>
 <ul>
+<li>83 1901 has a big gap during the exposure</li>
 <li>70 1803 has a big gap during the exposure</li>
 <li>79 1807 has a big gap during the exposure</li>
 <li>70 1802 this is right at the beginning of the record and because we concat dives that are less than 800 meters into surf this turns into a surf. But surfs at the beginning of a record are onbounded on the left side, so this should be deleted. this is an oversight in the prep functions that can be corrected. also this would be the single data point for that exposure so probably would filter this out anyway.</li>
@@ -177,7 +178,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 5.17e-01     0.7  &lt;2e-16 ***
-s(tsun) 8.00e+00 2.33e-05     1.0    0.71    
+s(tsun) 8.00e+00 2.33e-05     1.0    0.78    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -265,7 +266,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 1.82e-05    0.71  &lt;2e-16 ***
-s(tsun) 8.00e+00 4.19e-01    0.98    0.38    
+s(tsun) 8.00e+00 4.19e-01    0.98    0.42    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -361,7 +362,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                         k'   edf k-index p-value    
 s(time)              9.000 1.872    0.76  &lt;2e-16 ***
-s(tsun)              8.000 0.654    0.90    0.15    
+s(tsun)              8.000 0.654    0.90    0.14    
 s(SSS):simulated_ind 2.000 0.548    0.76  &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
@@ -447,8 +448,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value   
-s(time) 9.00e+00 3.72e-05    0.89    0.01 **
-s(tsun) 8.00e+00 4.05e-01    0.96    0.20   
+s(time) 9.00e+00 3.72e-05    0.89   0.005 **
+s(tsun) 8.00e+00 4.05e-01    0.96   0.175   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -543,9 +544,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value  
-s(time)              9.00e+00 5.94e-07    0.83   0.060 .
-s(tsun)              8.00e+00 1.26e+00    1.08   0.830  
-s(SSS):simulated_ind 2.00e+00 1.07e+00    0.83   0.055 .
+s(time)              9.00e+00 5.94e-07    0.83   0.080 .
+s(tsun)              8.00e+00 1.26e+00    1.08   0.810  
+s(SSS):simulated_ind 2.00e+00 1.07e+00    0.83   0.065 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -632,10 +633,10 @@ Model rank =  20 / 20
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-                           k'      edf k-index p-value    
-s(time)              9.00e+00 1.70e-01    0.74  &lt;2e-16 ***
-s(tsun)              8.00e+00 7.60e-06    0.98   0.425    
-s(SSS):simulated_ind 2.00e+00 1.67e+00    0.76   0.015 *  
+                           k'      edf k-index p-value   
+s(time)              9.00e+00 1.70e-01    0.74   0.005 **
+s(tsun)              8.00e+00 7.60e-06    0.98   0.365   
+s(SSS):simulated_ind 2.00e+00 1.67e+00    0.76   0.015 * 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -731,8 +732,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value  
-s(time) 9.00e+00 9.02e-01    0.83    0.04 *
-s(tsun) 8.00e+00 3.73e-06    0.88    0.20  
+s(time) 9.00e+00 9.02e-01    0.83    0.06 .
+s(tsun) 8.00e+00 3.73e-06    0.88    0.22  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -821,8 +822,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 1.75e+00    0.97    0.38
-s(tsun) 8.00e+00 4.43e-05    0.99    0.43</code></pre>
+s(time) 9.00e+00 1.75e+00    0.97    0.33
+s(tsun) 8.00e+00 4.43e-05    0.99    0.44</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-31.png" class="img-fluid" width="672"></p>
@@ -915,9 +916,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value  
-s(time)              9.00e+00 2.45e-06    0.86    0.08 .
-s(tsun)              8.00e+00 3.33e-06    0.94    0.39  
-s(SSS):simulated_ind 2.00e+00 1.05e+00    0.86    0.06 .
+s(time)              9.00e+00 2.45e-06    0.86   0.070 .
+s(tsun)              8.00e+00 3.33e-06    0.94   0.430  
+s(SSS):simulated_ind 2.00e+00 1.05e+00    0.86   0.095 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1007,8 +1008,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value    
-s(time)              9.00e+00 3.28e-05    0.81  &lt;2e-16 ***
-s(tsun)              8.00e+00 1.75e+00    1.01    0.55    
+s(time)              9.00e+00 3.28e-05    0.81   0.005 ** 
+s(tsun)              8.00e+00 1.75e+00    1.01   0.530    
 s(SSS):simulated_ind 2.00e+00 1.17e+00    0.81  &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
@@ -1104,8 +1105,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value
-s(time)              9.00e+00 1.62e-06    0.97    0.41
-s(tsun)              8.00e+00 2.01e-06    0.99    0.63
+s(time)              9.00e+00 1.62e-06    0.97    0.52
+s(tsun)              8.00e+00 2.01e-06    0.99    0.58
 s(SSS):simulated_ind 2.00e+00 1.18e+00    0.94    0.40</code></pre>
 </div>
 <div class="cell-output-display">
@@ -1194,7 +1195,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 4.43e+00    0.73  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.28e-05    0.92    0.18    
+s(tsun) 8.00e+00 1.28e-05    0.92    0.15    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1291,7 +1292,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
 s(time) 9.00e+00 3.89e+00    1.22    0.94
-s(tsun) 8.00e+00 1.06e-05    0.83    0.12</code></pre>
+s(tsun) 8.00e+00 1.06e-05    0.83    0.18</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-51.png" class="img-fluid" width="672"></p>
@@ -1378,8 +1379,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
           k'  edf k-index p-value
-s(time) 9.00 3.64    1.03    0.55
-s(tsun) 8.00 1.40    1.22    0.92</code></pre>
+s(time) 9.00 3.64    1.03    0.51
+s(tsun) 8.00 1.40    1.22    0.90</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-55.png" class="img-fluid" width="672"></p>
@@ -1532,7 +1533,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value    
 s(time)              9.00e+00 2.15e-02    0.58  &lt;2e-16 ***
-s(tsun)              8.00e+00 2.10e+00    0.94    0.54    
+s(tsun)              8.00e+00 2.10e+00    0.94    0.56    
 s(SSS):simulated_ind 2.00e+00 5.17e-06    0.57  &lt;2e-16 ***
 s(SSC):control_ind   2.00e+00 1.41e+00    0.58  &lt;2e-16 ***
 ---
@@ -1678,7 +1679,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 3.88e+00    0.79  &lt;2e-16 ***
-s(tsun) 8.00e+00 2.22e-05    1.00    0.56    
+s(tsun) 8.00e+00 2.22e-05    1.00    0.54    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1831,7 +1832,7 @@ indicate that k is too low, especially if edf is close to k'.
 
            k'   edf k-index p-value    
 s(time) 9.000 0.676    0.60  &lt;2e-16 ***
-s(tsun) 8.000 0.247    0.99    0.77    
+s(tsun) 8.000 0.247    0.99    0.68    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1966,8 +1967,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 2.60e-06    0.95    0.24
-s(tsun) 8.00e+00 9.16e-06    0.97    0.34</code></pre>
+s(time) 9.00e+00 2.60e-06    0.95    0.22
+s(tsun) 8.00e+00 9.16e-06    0.97    0.30</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-71.png" class="img-fluid" width="672"></p>
@@ -2110,7 +2111,7 @@ indicate that k is too low, especially if edf is close to k'.
 
             k'    edf k-index p-value    
 s(time) 9.0000 0.4498    0.69  &lt;2e-16 ***
-s(tsun) 8.0000 0.0588    0.95    0.59    
+s(tsun) 8.0000 0.0588    0.95    0.58    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2243,8 +2244,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 3.30e-06    0.92    0.16
-s(tsun) 8.00e+00 4.16e-06    1.05    0.72</code></pre>
+s(time) 9.00e+00 3.30e-06    0.92    0.18
+s(tsun) 8.00e+00 4.16e-06    1.05    0.76</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-79.png" class="img-fluid" width="672"></p>
@@ -2425,9 +2426,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                          k'      edf k-index p-value  
-s(time)            9.00e+00 5.43e-06    0.85   0.045 *
-s(tsun)            8.00e+00 9.63e-06    1.00   0.525  
-s(SSC):control_ind 2.00e+00 9.80e-01    0.86   0.075 .
+s(time)            9.00e+00 5.43e-06    0.85   0.060 .
+s(tsun)            8.00e+00 9.63e-06    1.00   0.545  
+s(SSC):control_ind 2.00e+00 9.80e-01    0.86   0.045 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2520,7 +2521,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.000000 0.000440    0.46  &lt;2e-16 ***
-s(tsun) 8.000000 0.000471    0.87    0.59    
+s(tsun) 8.000000 0.000471    0.87    0.56    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2606,7 +2607,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 1.14e-05    0.73  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.22e+00    0.97     0.4    
+s(tsun) 8.00e+00 1.22e+00    0.97    0.36    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2757,9 +2758,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                         k'   edf k-index p-value  
-s(time)              9.000 0.854    0.72    0.08 .
-s(tsun)              8.000 2.689    0.85    0.29  
-s(SSS):simulated_ind 2.000 0.723    0.70    0.06 .
+s(time)              9.000 0.854    0.72   0.070 .
+s(tsun)              8.000 2.689    0.85   0.300  
+s(SSS):simulated_ind 2.000 0.723    0.70   0.035 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2892,8 +2893,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 5.25e-01    0.95    0.34
-s(tsun) 8.00e+00 5.76e-07    1.05    0.55</code></pre>
+s(time) 9.00e+00 5.25e-01    0.95    0.35
+s(tsun) 8.00e+00 5.76e-07    1.05    0.56</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-103.png" class="img-fluid" width="672"></p>
@@ -2987,7 +2988,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                          k'      edf k-index p-value    
 s(time)            9.00e+00 7.71e-06    0.61  &lt;2e-16 ***
-s(tsun)            8.00e+00 3.00e-06    0.91    0.64    
+s(tsun)            8.00e+00 3.00e-06    0.91    0.67    
 s(SSC):control_ind 2.00e+00 6.82e-01    0.61  &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
@@ -3077,16 +3078,13 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value  
-s(time) 9.00e+00 6.89e-01    0.84   0.045 *
-s(tsun) 8.00e+00 1.01e-05    1.27   1.000  
+s(time) 9.00e+00 6.89e-01    0.84    0.02 *
+s(tsun) 8.00e+00 1.01e-05    1.27    1.00  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-111.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-112.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -3102,8 +3100,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-112.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 17, ZcTag083_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -3188,7 +3191,7 @@ indicate that k is too low, especially if edf is close to k'.
 
            k'   edf k-index p-value   
 s(time) 9.000 0.925    0.73   0.005 **
-s(tsun) 8.000 1.187    0.79   0.030 * 
+s(tsun) 8.000 1.187    0.79   0.020 * 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -3273,15 +3276,12 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 2.37e-05    0.68  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.02e+00    0.96    0.31    
+s(tsun) 8.00e+00 1.02e+00    0.96    0.29    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-119.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-120.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -3290,8 +3290,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-120.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 19, ZcTag085_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -3376,8 +3381,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 6.01e-06    0.85    0.12
-s(tsun) 8.00e+00 1.92e+00    0.96    0.69</code></pre>
+s(time) 9.00e+00 6.01e-06    0.85    0.18
+s(tsun) 8.00e+00 1.92e+00    0.96    0.68</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-123.png" class="img-fluid" width="672"></p>
@@ -3463,15 +3468,12 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                           k'     edf k-index p-value
-s(time)              9.00000 0.00001    0.91    0.14
-s(tsun)              8.00000 0.76494    0.93    0.12
+s(time)              9.00000 0.00001    0.91    0.16
+s(tsun)              8.00000 0.76494    0.93    0.22
 s(SSS):simulated_ind 2.00000 1.59516    0.91    0.14</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-127.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-128.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -3480,8 +3482,13 @@ s(SSS):simulated_ind 2.00000 1.59516    0.91    0.14</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-128.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 21, ZcTag087_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -3656,8 +3663,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.000000 2.545769    0.99    0.46
-s(tsun) 8.000000 0.000012    1.01    0.50</code></pre>
+s(time) 9.000000 2.545769    0.99    0.44
+s(tsun) 8.000000 0.000012    1.01    0.54</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-135.png" class="img-fluid" width="672"></p>
@@ -3751,7 +3758,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value    
 s(time)              9.00e+00 2.47e-06    0.57  &lt;2e-16 ***
-s(tsun)              8.00e+00 3.39e-01    0.92    0.34    
+s(tsun)              8.00e+00 3.39e-01    0.92    0.38    
 s(SSS):simulated_ind 2.00e+00 1.30e+00    0.57  &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
@@ -3842,9 +3849,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                        k'  edf k-index p-value  
-s(time)              9.00 2.16    0.96   0.290  
-s(tsun)              8.00 1.97    0.87   0.055 .
-s(SSS):simulated_ind 2.00 1.27    0.96   0.320  
+s(time)              9.00 2.16    0.96   0.325  
+s(tsun)              8.00 1.97    0.87   0.045 *
+s(SSS):simulated_ind 2.00 1.27    0.96   0.330  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -3940,7 +3947,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                            k'      edf k-index p-value    
 s(time)              9.00e+00 3.05e-06    0.68  &lt;2e-16 ***
-s(tsun)              8.00e+00 8.34e-06    0.82   0.055 .  
+s(tsun)              8.00e+00 8.34e-06    0.82   0.095 .  
 s(SSS):simulated_ind 2.00e+00 1.19e+00    0.68  &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
@@ -4029,15 +4036,14 @@ Model rank =  18 / 18
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'      edf k-index p-value
-s(time) 9.00e+00 2.61e+00    0.90    0.11
-s(tsun) 8.00e+00 6.68e-06    0.98    0.36</code></pre>
+              k'      edf k-index p-value  
+s(time) 9.00e+00 2.61e+00    0.90   0.095 .
+s(tsun) 8.00e+00 6.68e-06    0.98   0.385  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-151.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-152.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -4046,8 +4052,13 @@ s(tsun) 8.00e+00 6.68e-06    0.98    0.36</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-152.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 25, ZcTag093_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -4133,9 +4144,9 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                         k'   edf k-index p-value
-s(time)              9.000 0.398    0.97    0.49
-s(tsun)              8.000 1.904    0.96    0.34
-s(SSS):simulated_ind 2.000 1.805    0.95    0.26</code></pre>
+s(time)              9.000 0.398    0.97    0.44
+s(tsun)              8.000 1.904    0.96    0.42
+s(SSS):simulated_ind 2.000 1.805    0.95    0.36</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-155.png" class="img-fluid" width="672"></p>
@@ -4221,7 +4232,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 4.05e-06    0.69  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.52e-05    1.12    0.90    
+s(tsun) 8.00e+00 1.52e-05    1.12    0.88    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -4318,7 +4329,7 @@ indicate that k is too low, especially if edf is close to k'.
 
           k'  edf k-index p-value    
 s(time) 9.00 1.92    0.67  &lt;2e-16 ***
-s(tsun) 8.00 3.49    1.07    0.93    
+s(tsun) 8.00 3.49    1.07    0.92    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -4407,8 +4418,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 7.10e-01    1.00    0.54
-s(tsun) 8.00e+00 3.28e-05    0.95    0.28</code></pre>
+s(time) 9.00e+00 7.10e-01    1.00    0.50
+s(tsun) 8.00e+00 3.28e-05    0.95    0.33</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-167.png" class="img-fluid" width="672"></p>
@@ -4499,7 +4510,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
 s(time) 9.00e+00 8.93e-06    0.83    0.10
-s(tsun) 8.00e+00 6.41e-06    0.98    0.72</code></pre>
+s(tsun) 8.00e+00 6.41e-06    0.98    0.71</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-171.png" class="img-fluid" width="672"></p>
@@ -4583,7 +4594,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
 s(time) 9.00e+00 1.57e-02    1.03    0.64
-s(tsun) 8.00e+00 4.13e-06    1.06    0.69</code></pre>
+s(tsun) 8.00e+00 4.13e-06    1.06    0.72</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-175.png" class="img-fluid" width="672"></p>
@@ -4672,9 +4683,9 @@ Model rank =  18 / 18
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'      edf k-index p-value  
-s(time) 9.00e+00 3.93e-06    0.73   0.015 *
-s(tsun) 8.00e+00 3.50e-06    0.89   0.365  
+              k'      edf k-index p-value   
+s(time) 9.00e+00 3.93e-06    0.73   0.005 **
+s(tsun) 8.00e+00 3.50e-06    0.89   0.355   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -4763,14 +4774,11 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
            k'   edf k-index p-value
-s(time) 9.000 0.912    1.01    0.50
-s(tsun) 8.000 0.982    1.11    0.88</code></pre>
+s(time) 9.000 0.912    1.01    0.54
+s(tsun) 8.000 0.982    1.11    0.90</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-183.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-184.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -4779,8 +4787,13 @@ s(tsun) 8.000 0.982    1.11    0.88</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-184.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 30, ZcTag101_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -4861,8 +4874,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 4.58e-06    0.92    0.52
-s(tsun) 8.00e+00 2.10e-05    0.88    0.28</code></pre>
+s(time) 9.00e+00 4.58e-06    0.92    0.47
+s(tsun) 8.00e+00 2.10e-05    0.88    0.36</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-187.png" class="img-fluid" width="672"></p>
@@ -4949,8 +4962,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
            k'   edf k-index p-value
-s(time) 9.000 0.710     0.9    0.10
-s(tsun) 8.000 0.625     1.0    0.53</code></pre>
+s(time) 9.000 0.710     0.9    0.14
+s(tsun) 8.000 0.625     1.0    0.51</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-191.png" class="img-fluid" width="672"></p>
@@ -5044,8 +5057,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value  
-s(time) 9.00e+00 6.99e-06    0.78   0.045 *
-s(tsun) 8.00e+00 2.10e+00    0.94   0.545  
+s(time) 9.00e+00 6.99e-06    0.78    0.02 *
+s(tsun) 8.00e+00 2.10e+00    0.94    0.53  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -5224,7 +5237,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 4.92e-06    0.61  &lt;2e-16 ***
-s(tsun) 8.00e+00 6.15e-01    0.78    0.04 *  
+s(tsun) 8.00e+00 6.15e-01    0.78    0.01 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -5308,11 +5321,9 @@ Model rank =  18 / 18
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'      edf k-index p-value  
-s(time) 9.00e+00 2.93e-06    0.89    0.09 .
-s(tsun) 8.00e+00 1.43e-05    1.06    0.75  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+              k'      edf k-index p-value
+s(time) 9.00e+00 2.93e-06    0.89    0.12
+s(tsun) 8.00e+00 1.43e-05    1.06    0.80</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-207.png" class="img-fluid" width="672"></p>
@@ -5403,11 +5414,9 @@ Model rank =  18 / 18
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'      edf k-index p-value  
-s(time) 9.00e+00 6.17e-06    0.83   0.095 .
-s(tsun) 8.00e+00 5.25e-06    1.04   0.940  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+              k'      edf k-index p-value
+s(time) 9.00e+00 6.17e-06    0.83    0.10
+s(tsun) 8.00e+00 5.25e-06    1.04    0.92</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-211.png" class="img-fluid" width="672"></p>
@@ -5489,17 +5498,12 @@ Model rank =  18 / 18
 Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
-              k'      edf k-index p-value  
-s(time) 9.00e+00 5.19e-06    1.08    0.80  
-s(tsun) 8.00e+00 7.94e-06    0.89    0.07 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+              k'      edf k-index p-value
+s(time) 9.00e+00 5.19e-06    1.08    0.81
+s(tsun) 8.00e+00 7.94e-06    0.89    0.10</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-215.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-216.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -5508,8 +5512,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-216.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 35, ZcTag107_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -5594,8 +5603,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value  
-s(time) 9.00e+00 4.05e-06    0.79   0.025 *
-s(tsun) 8.00e+00 1.94e+00    0.92   0.330  
+s(time) 9.00e+00 4.05e-06    0.79    0.02 *
+s(tsun) 8.00e+00 1.94e+00    0.92    0.32  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -5684,14 +5693,11 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 9.03e-01    1.13    0.95
-s(tsun) 8.00e+00 8.77e-06    0.99    0.38</code></pre>
+s(time) 9.00e+00 9.03e-01    1.13    0.92
+s(tsun) 8.00e+00 8.77e-06    0.99    0.46</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-223.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-224.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -5700,8 +5706,13 @@ s(tsun) 8.00e+00 8.77e-06    0.99    0.38</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-224.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 37, ZcTag110_DUML"
 [1] "*************************************"
 [1] "There is simulated sonar on this tag."
@@ -5785,7 +5796,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 1.27e-05    0.57  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.17e-05    0.90    0.51    
+s(tsun) 8.00e+00 1.17e-05    0.90    0.48    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -5875,8 +5886,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
                        k'  edf k-index p-value
-s(time)              9.00 2.37    0.91    0.10
-s(tsun)              8.00 1.16    0.99    0.44
+s(time)              9.00 2.37    0.91    0.13
+s(tsun)              8.00 1.16    0.99    0.54
 s(SSS):simulated_ind 2.00 1.41    0.91    0.12</code></pre>
 </div>
 <div class="cell-output-display">
@@ -5972,7 +5983,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 7.47e-01    0.47  &lt;2e-16 ***
-s(tsun) 8.00e+00 1.82e-05    0.90    0.57    
+s(tsun) 8.00e+00 1.82e-05    0.90    0.56    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -6061,16 +6072,13 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value  
-s(time) 9.00e+00 5.16e+00    0.89   0.055 .
-s(tsun) 8.00e+00 7.94e-06    1.02   0.540  
+s(time) 9.00e+00 5.16e+00    0.89    0.08 .
+s(tsun) 8.00e+00 7.94e-06    1.02    0.56  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-239.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-240.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "*************************************"
@@ -6086,8 +6094,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 [1] "There is not simulated sonar on this tag."
 [1] "There is not control on this tag."
 [1] "Fewer than 2 surface models fitted"
-[1] "Fewer than 2 dive models fitted"
-[1] "*************************************"
+[1] "Fewer than 2 dive models fitted"</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-240.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "*************************************"
 [1] "** Tag number 41, ZcTag131_DUML"
 [1] "*************************************"
 [1] "There is not simulated sonar on this tag."
@@ -6174,8 +6187,8 @@ indicate that k is too low, especially if edf is close to k'.
 
                       k'   edf k-index p-value
 s(time)            9.000 2.358    0.94    0.73
-s(tsun)            8.000 0.234    0.78    0.30
-s(SSC):control_ind 2.000 1.830    0.86    0.54</code></pre>
+s(tsun)            8.000 0.234    0.78    0.28
+s(SSC):control_ind 2.000 1.830    0.86    0.50</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-243.png" class="img-fluid" width="672"></p>
@@ -6263,7 +6276,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
 s(time) 9.00e+00 8.30e-01    1.09    0.73
-s(tsun) 8.00e+00 3.32e-06    0.88    0.20</code></pre>
+s(tsun) 8.00e+00 3.32e-06    0.88    0.16</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-247.png" class="img-fluid" width="672"></p>
@@ -6358,7 +6371,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 1.91e+00    0.64  &lt;2e-16 ***
-s(tsun) 8.00e+00 4.66e-05    0.94    0.54    
+s(tsun) 8.00e+00 4.66e-05    0.94     0.6    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -6448,7 +6461,7 @@ indicate that k is too low, especially if edf is close to k'.
 
            k'   edf k-index p-value    
 s(time) 9.000 2.858    0.81  &lt;2e-16 ***
-s(tsun) 8.000 0.855    1.04    0.71    
+s(tsun) 8.000 0.855    1.04     0.8    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -6541,7 +6554,7 @@ indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value    
 s(time) 9.00e+00 4.02e-07    0.63  &lt;2e-16 ***
-s(tsun) 8.00e+00 3.70e-01    0.83     0.2    
+s(tsun) 8.00e+00 3.70e-01    0.83    0.22    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -6626,8 +6639,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 9.60e-06    0.91    0.19
-s(tsun) 8.00e+00 1.24e+00    1.15    0.89</code></pre>
+s(time) 9.00e+00 9.60e-06    0.91    0.12
+s(tsun) 8.00e+00 1.24e+00    1.15    0.90</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-263.png" class="img-fluid" width="672"></p>
@@ -6717,8 +6730,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 9.83e-07    1.10    0.84
-s(tsun) 8.00e+00 7.19e-01    1.09    0.83</code></pre>
+s(time) 9.00e+00 9.83e-07    1.10    0.78
+s(tsun) 8.00e+00 7.19e-01    1.09    0.80</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-267.png" class="img-fluid" width="672"></p>
@@ -6801,8 +6814,8 @@ Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
 indicate that k is too low, especially if edf is close to k'.
 
               k'      edf k-index p-value
-s(time) 9.00e+00 3.30e-01    1.13    0.73
-s(tsun) 8.00e+00 1.74e-06    1.25    0.88</code></pre>
+s(time) 9.00e+00 3.30e-01    1.13    0.72
+s(tsun) 8.00e+00 1.74e-06    1.25    0.90</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="select_exp_only_LT4_files/figure-html/unnamed-chunk-2-271.png" class="img-fluid" width="672"></p>
